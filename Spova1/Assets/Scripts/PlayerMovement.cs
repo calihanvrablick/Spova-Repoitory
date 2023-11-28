@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.TextCore.Text;
@@ -16,7 +17,10 @@ public class PlayerMovement : MonoBehaviour
     public float sensitivity = 3.0f;
     public float smoothing = 2.0f;
 
-    public float speed;
+
+    float horizontal;
+    float vertical;
+    public float speed = 8f;
 
 
 
@@ -26,6 +30,7 @@ public class PlayerMovement : MonoBehaviour
     Vector2 smoothV;
 
     public GameObject character;
+    public CharacterController characterController;
     private Camera cameraObject;
 
     //A boolean value that will tell you if you are within .1 Unity Unit from the ground
@@ -49,13 +54,31 @@ public class PlayerMovement : MonoBehaviour
 
         Cursor.lockState = CursorLockMode.Locked;
         body = GetComponent<Rigidbody>();
+
+        vertical = Input.GetAxis("Vertical");
+        horizontal = Input.GetAxis("Horizontal");
     }
 
     // Update is a function that is called once per frame
     void Update()
     {
-        //transform.position += transform.right * speed * time.deltaTime;
+        Move();
         CameraUpdate();
+    }
+
+
+
+    /// <summary>
+    /// allows player to move based on the player's input
+    /// </summary>
+    private void Move()
+    {
+        float x = Input.GetAxis("Horizontal");
+        float z = Input.GetAxis("Vertical");
+
+        Vector3 move = transform.right * x + transform.forward * z;
+
+        characterController.Move(move * speed * Time.deltaTime);
     }
 
 
