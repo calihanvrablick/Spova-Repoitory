@@ -20,7 +20,7 @@ public class PlayerMovement : MonoBehaviour
 
     float horizontal;
     float vertical;
-    public float speed = 8f;
+    public float speed;
 
 
 
