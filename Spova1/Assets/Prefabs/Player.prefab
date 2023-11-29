@@ -244,8 +244,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sensitivity: 5
   smoothing: 2
-  speed: 0
+  speed: 12
   character: {fileID: 8388013777906163280}
+  characterController: {fileID: 2026805768659862188}
 --- !u!143 &2026805768659862188
 CharacterController:
   m_ObjectHideFlags: 0
@@ -266,7 +267,7 @@ CharacterController:
   m_Enabled: 1
   serializedVersion: 3
   m_Height: 2
-  m_Radius: 0.5000001
+  m_Radius: 0.6
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
