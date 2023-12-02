@@ -13,16 +13,24 @@ using TMPro;
  */
 public class UIManager : MonoBehaviour
 {
-
-    public PlayerHandler playerHandler;
+    public GameObject playerObject;
     public TMP_Text healthText;
     public TMP_Text coinsText;
 
+    private PlayerHandler playerInfo;
+    
+
+    private void Start()
+    {
+        playerInfo = playerObject.GetComponent<PlayerHandler>();
+    }
 
     // Update is called once per frame
     void Update()
     {
-        healthText.text = "Health: " + playerHandler.health;
-        coinsText.text = "Coins: " + playerHandler.Coins;
+        
+        healthText.text = "Health: " + playerInfo.health;
+        coinsText.text = "Coins: " + playerInfo.Coins;
+        
     }
 }

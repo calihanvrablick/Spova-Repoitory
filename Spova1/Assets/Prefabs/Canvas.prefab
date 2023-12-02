@@ -250,7 +250,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f52726f6494ddd04891f355cdbb62ed8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerController: {fileID: 0}
+  playerObject: {fileID: 0}
   healthText: {fileID: 3304474178352909008}
   coinsText: {fileID: 7675736738102062737}
 --- !u!1 &7530447991200949797

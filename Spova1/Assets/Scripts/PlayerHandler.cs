@@ -24,4 +24,14 @@ public class PlayerHandler : MonoBehaviour
     {
         
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Coin")
+        {
+            Coins += 1;
+            other.gameObject.SetActive(false);
+            Destroy(other.gameObject);
+        }
+    }
 }
