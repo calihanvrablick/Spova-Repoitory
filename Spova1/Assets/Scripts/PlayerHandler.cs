@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 /*
  * Author: [Nguyen, Kanyon] & [Vrablick, Calihan]
@@ -22,9 +23,14 @@ public class PlayerHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        CheckIfDead();
     }
 
+
+    /// <summary>
+    /// handles collision events for the player object
+    /// </summary>
+    /// <param name="other"></param>
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Coin")
@@ -32,6 +38,20 @@ public class PlayerHandler : MonoBehaviour
             Coins += 1;
             other.gameObject.SetActive(false);
             Destroy(other.gameObject);
+        }
+    }
+
+
+
+    /// <summary>
+    /// checks to see if the player is alive. If not, switch to the game over screen
+    /// </summary>
+    public void CheckIfDead()
+    {
+        if (health < 0)
+        {
+            Cursor.lockState = CursorLockMode.Confined;
+            SceneManager.LoadScene(1);
         }
     }
 }

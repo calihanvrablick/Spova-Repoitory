@@ -37,14 +37,7 @@ public class PlayerMovement : MonoBehaviour
     private bool is_grounded;
     //The rigid body attached to the player
     private Rigidbody body;
-    //how close are we to a wall on our left side
-    private float distance_to_wall_left = 2f;
-    //how close are we to a wall on our right side
-    private float distance_to_wall_right = 2f;
-    //how close are we to a wall going forward
-    private float distance_to_wall_forward = 2f;
-    //how close are we to a wall going backwards
-    private float distance_to_wall_back = 2f;
+
 
     //Start is a function that is called once when the object is Instatiated. 
     void Start()
