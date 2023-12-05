@@ -22,6 +22,8 @@ public class MazeGenerator : MonoBehaviour
     void Start()
     {
         RandomNumber();
+
+        Test();
     }
 
     // Update is called once per frame
@@ -32,13 +34,37 @@ public class MazeGenerator : MonoBehaviour
 
     public int RandomNumber()
     {
-        int number = Random.Range(1, 3);
+        int number = Random.Range(1, 4);
+        int result = Mathf.Clamp(number, 1, 3);
         //print(number);
-        return number;
+        return result;
     }
 
-    public void makeRoom()
+    public void MakeRoom()
     {
         RandomNumber();
+    }
+
+
+
+    /// <summary>
+    /// function used only to debug the functionality of the maze
+    /// not normally called by the script
+    /// </summary>
+    private void Test()
+    {
+        /*
+        int[] array = new int[10];
+        for (int i = 0; i < 10; i++)
+        {
+            array[i] = RandomNumber();
+        }
+        string msg = "";
+        foreach (int i in array)
+        {
+            msg += i + " ";
+        }
+        print(msg);
+        */
     }
 }
