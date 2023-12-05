@@ -11,14 +11,26 @@ using UnityEngine.SceneManagement;
 public class PlayerHandler : MonoBehaviour
 {
 
+    // editable variables
     public int health;
     public int Coins;
+    public float invicibilityTime;
+
+
+    // object variables
+    private Renderer playerRenderer;
+
+
+    // placeholder variables
+    private bool isInvincible = false;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        playerRenderer = GetComponent<Renderer>();
     }
+
 
     // Update is called once per frame
     void Update()
@@ -39,7 +51,24 @@ public class PlayerHandler : MonoBehaviour
             other.gameObject.SetActive(false);
             Destroy(other.gameObject);
         }
+
+        if (other.gameObject.tag == "HardEnemy")
+        {
+            TakeDamage(other.gameObject.GetComponent<HardEnemy>().contactDamage);
+        }
     }
+
+
+
+
+
+    // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    // CUSTOM FUNCTIONS GO DOWN HERE
+    // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
 
 
 
@@ -48,10 +77,71 @@ public class PlayerHandler : MonoBehaviour
     /// </summary>
     public void CheckIfDead()
     {
-        if (health < 0)
+        if (health <= 0)
         {
             Cursor.lockState = CursorLockMode.Confined;
             SceneManager.LoadScene(1);
+        }
+    }
+
+
+
+
+
+    /// <summary>
+    /// subtracts health from the player character and calls for the player to become invincible
+    /// 
+    /// if player is invincible, dont take damage
+    /// </summary>
+    /// <param name="damageToTake"></param>
+    public void TakeDamage(int damageToTake)
+    {
+
+        if (isInvincible == false)
+        {
+            health -= damageToTake;
+            StartCoroutine(TurnInvincible());
+        }
+    }
+
+
+
+
+
+    /// <summary>
+    /// prevents the player from taking damage for 5 seconds
+    /// </summary>
+    /// <returns></returns>
+    IEnumerator TurnInvincible()
+    {
+        if (isInvincible == false)
+        {
+            isInvincible = true;
+            InvokeRepeating("toggleBlink", 0f, 0.25f);
+            yield return new WaitForSeconds(invicibilityTime);
+            isInvincible = false;
+            CancelInvoke();
+            playerRenderer.enabled = true;
+        }
+    }
+
+
+
+
+
+    /// <summary>
+    /// makes the player capsule invisible or visible based on its current visibility
+    /// </summary>
+    private void toggleBlink()
+    {
+        //print(gameObject.name);
+        if (playerRenderer.enabled == true)
+        {
+            playerRenderer.enabled = false;
+        }
+        else
+        {
+            playerRenderer.enabled = true;
         }
     }
 }

@@ -304,3 +304,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   Coins: 0
+  invicibilityTime: 2
