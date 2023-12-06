@@ -6,6 +6,11 @@ TagManager:
   tags:
   - Coin
   - HardEnemy
+  - Lightsaber
+  - EasyEnemy
+  - MediumEnemy
+  - SpawnPoint
+  - Bullet
   layers:
   - Default
   - TransparentFX
