@@ -2,6 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * Author: [Vrablick, Calihan] & [Nguyen, Kanyon]
+ * Last Updated: [12/06/2023]
+ * [Controls the movement of the easy enemy]
+ */
+
 public class EasyEnemy : MonoBehaviour
 {
     //game objects to determine how far left/right enemy goes
