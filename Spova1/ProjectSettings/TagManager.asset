@@ -11,6 +11,7 @@ TagManager:
   - MediumEnemy
   - SpawnPoint
   - Bullet
+  - ShopButton
   layers:
   - Default
   - TransparentFX

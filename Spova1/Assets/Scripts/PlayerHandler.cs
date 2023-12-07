@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -14,6 +16,7 @@ public class PlayerHandler : MonoBehaviour
     // editable variables
     public int health;
     public int Coins;
+
     public float invicibilityTime;
 
 
@@ -22,14 +25,19 @@ public class PlayerHandler : MonoBehaviour
 
 
     // placeholder variables
+    public int maxHealth;
+
     private bool isInvincible = false;
+
+    private int secretKeys = 0;
 
 
     // Start is called before the first frame update
     void Start()
     {
         playerRenderer = GetComponent<Renderer>();
-    }
+        maxHealth = health;
+}
 
 
     // Update is called once per frame
@@ -62,7 +70,39 @@ public class PlayerHandler : MonoBehaviour
 
         if (other.gameObject.tag == "ShopButton")
         {
-            gameObject.GetComponent<Shop>().OnPurchase(other.gameObject);
+            //print("Pressed button");
+
+            ShopButton thisButton = other.gameObject.GetComponent<ShopButton>();
+
+            int itemCost = thisButton.OnPurchase(Coins, other.gameObject);
+            
+            if (itemCost > 0)
+            {
+                Coins -= itemCost;
+                
+                if (thisButton.healthUp > 0)
+                {
+                    maxHealth += thisButton.healthUp;
+                    health += thisButton.healthUp;
+                }
+                if (thisButton.healing > 0)
+                {
+                    health += thisButton.healing;
+                    health = Mathf.Clamp(health, 1, maxHealth);
+                }
+                if (thisButton.speedUp > 0)
+                {
+
+                }
+                if (thisButton.damageUp > 0)
+                {
+
+                }
+                if (thisButton.secretKey == true)
+                {
+                    secretKeys += 1;
+                }
+            }
         }
     }
 

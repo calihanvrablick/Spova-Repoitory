@@ -16,7 +16,7 @@ public class ShopSpinningText : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        print("spinning");
+        //print("spinning");
         transform.Rotate(rotateAmount * Time.deltaTime);
     }
 }
