@@ -18,7 +18,6 @@ public class UIManager : MonoBehaviour
     public TMP_Text coinsText;
 
     private PlayerHandler playerInfo;
-    
 
     private void Start()
     {
@@ -29,7 +28,7 @@ public class UIManager : MonoBehaviour
     void Update()
     {
         
-        healthText.text = "Health: " + playerInfo.health;
+        healthText.text = "Health: " + playerInfo.health + " / " + playerInfo.maxHealth;
         coinsText.text = "Coins: " + playerInfo.Coins;
         
     }
