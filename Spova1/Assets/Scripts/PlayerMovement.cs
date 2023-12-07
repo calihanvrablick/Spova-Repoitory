@@ -18,10 +18,11 @@ public class PlayerMovement : MonoBehaviour
     public float smoothing = 2.0f;
 
 
-    float horizontal;
-    float vertical;
-    public float speed;
+    private float jumpHeight = 1.0f;
+    private float gravityValue = -5f;
 
+
+    public float speed;
 
 
     // playerholders
@@ -38,6 +39,8 @@ public class PlayerMovement : MonoBehaviour
     //The rigid body attached to the player
     private Rigidbody body;
 
+    private Vector3 playerVelocity;
+
 
     //Start is a function that is called once when the object is Instatiated. 
     void Start()
@@ -47,9 +50,6 @@ public class PlayerMovement : MonoBehaviour
 
         Cursor.lockState = CursorLockMode.Locked;
         body = GetComponent<Rigidbody>();
-
-        vertical = Input.GetAxis("Vertical");
-        horizontal = Input.GetAxis("Horizontal");
     }
 
     // Update is a function that is called once per frame
@@ -66,18 +66,45 @@ public class PlayerMovement : MonoBehaviour
     /// </summary>
     private void Move()
     {
+        /**/
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
 
         Vector3 move = transform.right * x + transform.forward * z;
 
         characterController.Move(move * speed * Time.deltaTime);
+
+        
+        is_grounded = characterController.isGrounded;
+        if (is_grounded && playerVelocity.y < 0)
+        {
+            playerVelocity.y = 0f;
+        }
+        /*
+        Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+        characterController.Move(move * Time.deltaTime * speed);
+
+        if (move != Vector3.zero)
+        {
+            gameObject.transform.forward = move;
+        }
+        */
+
+        // Changes the height position of the player..
+        if (Input.GetKey(KeyCode.Space) && is_grounded)
+        {
+            playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
+        }
+        
+        playerVelocity.y += gravityValue * Time.deltaTime;
+        characterController.Move(playerVelocity * Time.deltaTime);
     }
 
 
     /// <summary>
     /// called whenever update is called
     /// handles the functionality of the player's camera
+    /// taken from CADG 180 base scripts
     /// </summary>
     private void CameraUpdate()
     {

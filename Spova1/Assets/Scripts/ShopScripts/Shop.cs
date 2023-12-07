@@ -49,7 +49,7 @@ public class Shop : MonoBehaviour
 
 
             int number = UnityEngine.Random.Range(1, 101);
-            print(number);
+            //print(number);
 
 
             if (number == 100)
