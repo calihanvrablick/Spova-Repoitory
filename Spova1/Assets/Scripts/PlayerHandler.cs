@@ -45,6 +45,9 @@ public class PlayerHandler : MonoBehaviour
     /// <param name="other"></param>
     private void OnTriggerEnter(Collider other)
     {
+
+        
+
         if (other.gameObject.tag == "Coin")
         {
             Coins += 1;
@@ -55,6 +58,11 @@ public class PlayerHandler : MonoBehaviour
         if (other.gameObject.tag == "HardEnemy")
         {
             TakeDamage(other.gameObject.GetComponent<HardEnemy>().contactDamage);
+        }
+
+        if (other.gameObject.tag == "ShopButton")
+        {
+            gameObject.GetComponent<Shop>().OnPurchase(other.gameObject);
         }
     }
 
