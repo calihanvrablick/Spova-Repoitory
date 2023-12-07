@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -755,6 +755,29 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4456697262191287993, guid: 32b3232e84a5f4b8d9278a818ae7e1bd, type: 3}
   m_PrefabInstance: {fileID: 3554502099191481683}
   m_PrefabAsset: {fileID: 0}
+--- !u!136 &1618401001
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1618400998}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.2
+  m_Height: 2.5
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.8, z: 0}
 --- !u!1 &1644922227
 GameObject:
   m_ObjectHideFlags: 0
@@ -1136,6 +1159,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lightsaber
       objectReference: {fileID: 0}
+    - target: {fileID: 3504098912881027922, guid: 32b3232e84a5f4b8d9278a818ae7e1bd, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4313831671432036084, guid: 32b3232e84a5f4b8d9278a818ae7e1bd, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4313831671432036084, guid: 32b3232e84a5f4b8d9278a818ae7e1bd, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4456697262191287993, guid: 32b3232e84a5f4b8d9278a818ae7e1bd, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.78
@@ -1176,10 +1211,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5403739666864930523, guid: 32b3232e84a5f4b8d9278a818ae7e1bd, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9072332978230331113, guid: 32b3232e84a5f4b8d9278a818ae7e1bd, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 755810025323864388, guid: 32b3232e84a5f4b8d9278a818ae7e1bd, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1618401001}
   m_SourcePrefab: {fileID: 100100000, guid: 32b3232e84a5f4b8d9278a818ae7e1bd, type: 3}
 --- !u!1001 &7830336595814074477
 PrefabInstance:
