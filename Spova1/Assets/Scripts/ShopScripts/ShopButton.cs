@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 
@@ -12,7 +13,7 @@ using UnityEngine;
  */
 public class ShopButton : MonoBehaviour
 {
-    private float buyCooldown = 1f;
+    private float buyCooldown = 1.5f;
 
 
     // the upgrades for the player
@@ -68,15 +69,20 @@ public class ShopButton : MonoBehaviour
     /// <returns></returns>
     IEnumerator OnError(GameObject buttonPressed)
     {
+        TextMeshPro buttonText = buttonPressed.transform.Find("Text (TMP)").gameObject.GetComponent<TextMeshPro>();
+
+
         // setup the materials array because unity is a jag
         Renderer renderer = buttonPressed.GetComponent<Renderer>();
 
         buttonPressed.GetComponent<ShopButton>().onCooldown = true;
         renderer.material.SetColor("_Color", Color.red);
+        buttonText.text = "Not Enough Coins!";
 
         yield return new WaitForSeconds(buyCooldown);
         buttonPressed.GetComponent<ShopButton>().onCooldown = false;
         renderer.material.SetColor("_Color", Color.green);
+        buttonText.text = "Touch to Buy";
     }
 
 
@@ -91,10 +97,14 @@ public class ShopButton : MonoBehaviour
     /// <returns></returns>
     IEnumerator OnSuccess(GameObject buttonPressed)
     {
+        TextMeshPro buttonText = buttonPressed.transform.Find("Text (TMP)").gameObject.GetComponent<TextMeshPro>();
+
         buttonPressed.GetComponent<ShopButton>().onCooldown = true;
         buttonPressed.GetComponent<MeshRenderer>().enabled = false;
+        buttonText.text = "Purchased!";
         yield return new WaitForSeconds(buyCooldown);
         buttonPressed.GetComponent<ShopButton>().onCooldown = false;
         buttonPressed.GetComponent<MeshRenderer>().enabled = true;
+        buttonText.text = "Touch to Buy Again";
     }
 }

@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 234434644}
   - component: {fileID: 234434643}
   - component: {fileID: 234434642}
+  - component: {fileID: 234434646}
   m_Layer: 0
   m_Name: testFloor
   m_TagString: Untagged
@@ -228,6 +229,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &234434646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 234434641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fc6aa635ce10864b8474c1706350d30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shopPrefab: {fileID: 5557785124817193921, guid: c00b936b673887a40bbc8770b50e0313, type: 3}
+  enemyGrid: {fileID: 0}
+  parkourGrid: {fileID: 0}
 --- !u!1 &737196980
 GameObject:
   m_ObjectHideFlags: 0

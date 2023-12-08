@@ -187,7 +187,6 @@ GameObject:
   - component: {fileID: 4594417938334052114}
   - component: {fileID: 9046202364850380193}
   - component: {fileID: 2026805768659862188}
-  - component: {fileID: 8231183389617658557}
   - component: {fileID: 5006777214512770224}
   m_Layer: 0
   m_Name: Player
@@ -356,21 +355,6 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &8231183389617658557
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8388013777906163280}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6fc6aa635ce10864b8474c1706350d30, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shopGrid: {fileID: 0}
-  enemyGrid: {fileID: 0}
-  parkourGrid: {fileID: 0}
 --- !u!114 &5006777214512770224
 MonoBehaviour:
   m_ObjectHideFlags: 0

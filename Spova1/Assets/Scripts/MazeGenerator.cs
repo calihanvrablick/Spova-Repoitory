@@ -13,17 +13,72 @@ public class MazeGenerator : MonoBehaviour
 {
     // Start is called before the first frame update
 
-    public GameObject shopGrid;
+    public GameObject shopPrefab;
     public GameObject enemyGrid;
     public GameObject parkourGrid;
 
 
 
+
+    private static int rowSize = 4;
+    private static int colSize = 4;
+
+    // array for holding the floors
+    private GameObject[,] floorArray = new GameObject[rowSize, colSize];
+
+    // empty game object for holding the floors
+    private GameObject floorFolder;
+
+
     void Start()
     {
-        RandomNumber();
+        floorFolder = new GameObject("FloorFolder");
 
-        Test();
+        //Test();
+
+
+
+        // setup grid using 2-dimensional array
+
+        float xSize = transform.localScale.x;
+        float zSize = transform.localScale.z;
+
+        for (int row = 0; row < rowSize; row++)
+        {
+            for (int col = 0; col < colSize; col++)
+            {
+                // dont need the first grid since the floor is already there
+                if (row == 0 && col == 0)
+                {
+                    transform.name = "(" + row + ", " + col + ")";
+                    transform.SetParent(floorFolder.transform);
+                    continue;
+                }
+
+                floorArray[row, col] = GameObject.CreatePrimitive(PrimitiveType.Cube);
+                floorArray[row, col].transform.localScale = new Vector3(xSize, 1, zSize);
+                floorArray[row, col].name = "(" + row + ", " + col + ")";
+                floorArray[row, col].transform.localPosition = new Vector3(xSize*row, 0, zSize*col);
+
+                floorArray[row, col].transform.SetParent(floorFolder.transform);
+
+
+                // roll number to see what floor plan the room gets
+                int number = UnityEngine.Random.Range(1, 4);
+
+                if (number >= 3)
+                {
+                    // shop
+
+                    Renderer renderer = floorArray[row, col].GetComponent<Renderer>();
+                    GameObject shopClone = Instantiate(shopPrefab, new Vector3(xSize * row, 1, zSize * col), Quaternion.identity);
+                    renderer.material.SetColor("_Color", Color.yellow);
+
+                    shopClone.transform.SetParent(floorArray[row, col].transform);
+                }
+            }
+        }
+
     }
 
     // Update is called once per frame

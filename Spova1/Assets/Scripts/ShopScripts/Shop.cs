@@ -77,7 +77,7 @@ public class Shop : MonoBehaviour
                 int healingAmount = UnityEngine.Random.Range(50,101);
                 int costAmount = UnityEngine.Random.Range(1,3);
 
-                thisName.text = "Heal " + healingAmount + " health";
+                thisName.text = "Heal " + healingAmount + " Health";
                 thisCost.text = costAmount + " Coins";
                 thisButton.GetComponent<ShopButton>().cost = costAmount;
                 thisButton.GetComponent<ShopButton>().healing = healingAmount;
@@ -88,7 +88,7 @@ public class Shop : MonoBehaviour
                 int healthAmount = UnityEngine.Random.Range(25, 100);
                 int costAmount = UnityEngine.Random.Range(3,6);
 
-                thisName.text = "Gain " + healthAmount + " health";
+                thisName.text = "+ " + healthAmount + " Max Health";
                 thisCost.text = costAmount + " Coins";
                 thisButton.GetComponent<ShopButton>().cost = costAmount;
                 thisButton.GetComponent<ShopButton>().healthUp = healthAmount;
@@ -99,7 +99,7 @@ public class Shop : MonoBehaviour
                 int damageAmount = UnityEngine.Random.Range(1,5);
                 int costAmount = UnityEngine.Random.Range(1,5);
 
-                thisName.text = "Gain " + damageAmount + " damage";
+                thisName.text = "+ " + damageAmount + " Damage";
                 thisCost.text = costAmount + " Coins";
                 thisButton.GetComponent<ShopButton>().cost = costAmount;
                 thisButton.GetComponent<ShopButton>().damageUp = damageAmount;

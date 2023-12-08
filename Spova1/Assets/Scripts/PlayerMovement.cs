@@ -35,7 +35,7 @@ public class PlayerMovement : MonoBehaviour
     private Camera cameraObject;
 
     //A boolean value that will tell you if you are within .1 Unity Unit from the ground
-    private bool is_grounded;
+    private bool isGrounded;
     //The rigid body attached to the player
     private Rigidbody body;
 
@@ -56,6 +56,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         Move();
+        Jump();
         CameraUpdate();
     }
 
@@ -66,45 +67,50 @@ public class PlayerMovement : MonoBehaviour
     /// </summary>
     private void Move()
     {
-        /**/
-        float x = Input.GetAxis("Horizontal");
-        float z = Input.GetAxis("Vertical");
+        float xInput = Input.GetAxis("Horizontal");
+        float zInput = Input.GetAxis("Vertical");
 
-        Vector3 move = transform.right * x + transform.forward * z;
+        Vector3 move = transform.right * xInput + transform.forward * zInput;
 
         characterController.Move(move * speed * Time.deltaTime);
 
+
         
-        is_grounded = characterController.isGrounded;
-        if (is_grounded && playerVelocity.y < 0)
+        characterController.Move(playerVelocity * Time.deltaTime);
+    }
+
+
+
+
+
+    /// <summary>
+    /// handles the jump input as well as the gravitational movement of the player.
+    /// </summary>
+    private void Jump()
+    {
+        isGrounded = characterController.isGrounded;
+        if (isGrounded && playerVelocity.y < 0)
         {
             playerVelocity.y = 0f;
         }
-        /*
-        Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-        characterController.Move(move * Time.deltaTime * speed);
 
-        if (move != Vector3.zero)
-        {
-            gameObject.transform.forward = move;
-        }
-        */
-
-        // Changes the height position of the player..
-        if (Input.GetKey(KeyCode.Space) && is_grounded)
+        // changes the height position of the player for gravity
+        if (Input.GetKey(KeyCode.Space) && isGrounded)
         {
             playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
         }
-        
+
         playerVelocity.y += gravityValue * Time.deltaTime;
-        characterController.Move(playerVelocity * Time.deltaTime);
     }
+
+
+
 
 
     /// <summary>
     /// called whenever update is called
     /// handles the functionality of the player's camera
-    /// taken from CADG 180 base scripts
+    /// taken from scripts provided by the CADG 180 course.
     /// </summary>
     private void CameraUpdate()
     {
