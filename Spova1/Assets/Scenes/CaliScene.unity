@@ -910,8 +910,9 @@ MonoBehaviour:
   timer: 5
   bulletTime: 0
   enemyBullet: {fileID: 5629367964642171827, guid: f4c480c29a1a94156a2beb9d69429a5d, type: 3}
-  SpawnPoint: {fileID: 3020006053977550065, guid: f4c480c29a1a94156a2beb9d69429a5d, type: 3}
+  SpawnPoint: {fileID: 1959811764}
   enemySpeed: 5
+  bulletSpeed: 5
 --- !u!65 &1684552372
 BoxCollider:
   m_ObjectHideFlags: 0

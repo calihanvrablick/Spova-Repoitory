@@ -20,6 +20,8 @@ public class MediumEnemy : MonoBehaviour
 
     public float enemySpeed;
 
+    public float bulletSpeed;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -43,7 +45,7 @@ public class MediumEnemy : MonoBehaviour
 
         GameObject bulletObj = Instantiate(enemyBullet, SpawnPoint.transform.position, SpawnPoint.transform.rotation) as GameObject;
         Rigidbody bulletRig = bulletObj.GetComponent<Rigidbody>();
-        bulletRig.AddForce(bulletRig.transform.forward * 5.0f);
+        bulletRig.AddForce(bulletRig.transform.forward * bulletSpeed, ForceMode.Impulse);
         Destroy(bulletObj, 5f); 
        
     }
