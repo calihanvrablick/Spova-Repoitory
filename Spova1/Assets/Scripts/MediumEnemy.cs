@@ -13,7 +13,7 @@ public class MediumEnemy : MonoBehaviour
     public Transform Player;
 
     [SerializeField] private float timer = 5;
-    private float bulletTime;
+    public float bulletTime;
 
     public GameObject enemyBullet;
     public Transform SpawnPoint;
@@ -43,7 +43,7 @@ public class MediumEnemy : MonoBehaviour
 
         GameObject bulletObj = Instantiate(enemyBullet, SpawnPoint.transform.position, SpawnPoint.transform.rotation) as GameObject;
         Rigidbody bulletRig = bulletObj.GetComponent<Rigidbody>();
-        bulletRig.AddForce(bulletRig.transform.forward * enemySpeed);
+        bulletRig.AddForce(bulletRig.transform.forward * 5.0f);
         Destroy(bulletObj, 5f); 
        
     }

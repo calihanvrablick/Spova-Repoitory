@@ -14,7 +14,7 @@ public class WeaponController : MonoBehaviour
         {
             if (canAttack)
             {
-
+                lightsaberAttack();
             }
         }
     }
