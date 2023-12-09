@@ -258,14 +258,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c92e856e146aa4b02b96bf0faf3d1200, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 0}
   contactDamage: 30
   timer: 5
   bulletTime: 0
   enemyBullet: {fileID: 5629367964642171827, guid: f4c480c29a1a94156a2beb9d69429a5d, type: 3}
   SpawnPoint: {fileID: 181080513185831276}
   bulletSpeed: 5
-  health: 2
+  health: 12
 --- !u!64 &8459766299164329734
 MeshCollider:
   m_ObjectHideFlags: 0
