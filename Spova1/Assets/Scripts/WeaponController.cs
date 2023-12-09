@@ -8,6 +8,8 @@ public class WeaponController : MonoBehaviour
     public bool canAttack = true;
     public float attackCooldown = 1.0f;
 
+    public bool isAttacking = false;
+
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
@@ -21,6 +23,7 @@ public class WeaponController : MonoBehaviour
 
     public void lightsaberAttack()
     {
+        isAttacking = true;
         canAttack = false;
         Animator anim = lightsaber.GetComponent<Animator>();
         anim.SetTrigger("Attack");
@@ -29,8 +32,15 @@ public class WeaponController : MonoBehaviour
 
     IEnumerator resetAttackCooldown()
     {
+        StartCoroutine(resetAttackBool());
         yield return new WaitForSeconds(attackCooldown);
         canAttack = true;
+    }
+
+    IEnumerator resetAttackBool()
+    {
+        yield return new WaitForSeconds(1.0f);
+        isAttacking = false;
     }
 
 }

@@ -11,19 +11,14 @@ using UnityEngine;
 
 public class CollisionDetection : MonoBehaviour
 {
-    //public WeaponController wc;
-   // public Vector3;
+    public WeaponController wc;
 
-   // new Vector3 = "Lightsaber";
-
-   //private void OnTriggerEnter(Collider other)
-    //{
-        //if (other.tag == "HardEnemy" && wc.isAttacking)
-        //{
-           // Debug.Log(other.name);
-            //other.GetComponent<Animator>().SetTrigger("Hit");
-
-           // Instantiate new Vector3(other.transform.position.x,
-           // transform.position.y, other.transform.position.z);
-    //}
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "MediumEnemy" && wc.isAttacking)
+        {
+            Debug.Log(other.name);
+            other.GetComponent<Animator>().SetTrigger("Hit");
+        }
+    }
 }
