@@ -150,7 +150,7 @@ MonoBehaviour:
   player: {fileID: 0}
   speed: 1.5
   contactDamage: 50
-  health: 10
+  health: 24
 --- !u!64 &6503303521210673944
 MeshCollider:
   m_ObjectHideFlags: 0

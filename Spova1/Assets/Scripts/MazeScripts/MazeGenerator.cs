@@ -7,8 +7,8 @@ using UnityEngine;
 
 /*
  * Author: [Nguyen, Kanyon] & [Vrablick, Calihan]
- * Last Updated: [11/29/2023]
- * [Handles the functionality of the maze.]
+ * Last Updated: [12/08/2023]
+ * [Handles the functionality and generation of the maze.]
  */
 public class MazeGenerator : MonoBehaviour
 {
@@ -42,6 +42,7 @@ public class MazeGenerator : MonoBehaviour
     private GameObject floorFolder;
 
 
+
     void Start()
     {
         floorFolder = new GameObject("FloorFolder");
@@ -57,9 +58,6 @@ public class MazeGenerator : MonoBehaviour
         {
             for (int col = 0; col < colSize; col++)
             {
-
-                
-
                 // dont need the first grid since the floor is already there
                 if (row == 0 && col == 0)
                 {
@@ -140,7 +138,7 @@ public class MazeGenerator : MonoBehaviour
 
                         Vector3 targetPosition = floorArray[row, col].transform.localPosition + new Vector3(0f, -1f, 0f);
                         GameObject spiralClone = Instantiate(spiralPrefab, targetPosition, targetQuaternion);
-
+                        Destroy(spiralClone.transform.Find("Ground").gameObject);
                     }
 
                     for (int i = 0; i < amountOfCoins; i++)
