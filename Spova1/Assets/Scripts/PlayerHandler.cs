@@ -89,6 +89,13 @@ public class PlayerHandler : MonoBehaviour
             TakeDamage(other.gameObject.GetComponent<Obstacle>().damageOnTouch);
         }
 
+        if (other.gameObject.tag == "VictoryRoyale")
+        {
+            //print("touched the victory screen");
+            Cursor.lockState = CursorLockMode.Confined;
+            SceneManager.LoadScene(3);
+        }
+
         if (other.gameObject.tag == "ShopButton")
         {
             //print("Pressed button");
@@ -113,11 +120,11 @@ public class PlayerHandler : MonoBehaviour
                 }
                 if (thisButton.speedUp > 0)
                 {
-
+                    gameObject.GetComponent<PlayerMovement>().speed += thisButton.speedUp;
                 }
                 if (thisButton.damageUp > 0)
                 {
-
+                    gameObject.transform.Find("WeaponHolder").transform.Find("GameObject").transform.Find("Lightsaber").gameObject.GetComponent<Lightsaber>().damage += thisButton.damageUp;
                 }
                 if (thisButton.secretKey == true)
                 {

@@ -119,7 +119,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shopPrefab: {fileID: 5557785124817193921, guid: c00b936b673887a40bbc8770b50e0313, type: 3}
-  enemyGrid: {fileID: 0}
-  parkourGrid: {fileID: 0}
+  spikePrefab: {fileID: 3519575844690234118, guid: 7cf14f8207bda574ba58bbf06a2cf669, type: 3}
+  spiralPrefab: {fileID: 2881355629299498961, guid: 993d67517fdb646548e43b1e05033172, type: 3}
+  easyEnemy: {fileID: 8886465346835252264, guid: 389dc6b11fe97483b93bec860596c913, type: 3}
+  mediumEnemy: {fileID: 8718739152207400005, guid: a7f2169c72011475fbe4509341cb19d7, type: 3}
+  hardEnemy: {fileID: 168054464720336361, guid: cb344b198b7c39e4a9f392c3dc6b4d77, type: 3}
   mazeNodePrefab: {fileID: 2413278515293275683, guid: c3594c1d01d2f074bb582259fc1cc51a, type: 3}
   coinPrefab: {fileID: 3414472854426868557, guid: a4b7eba77e4ec4749a994adc2c3a82e4, type: 3}

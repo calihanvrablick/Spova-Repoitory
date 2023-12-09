@@ -327,7 +327,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sensitivity: 5
   smoothing: 2
-  speed: 12
+  speed: 8
   character: {fileID: 8388013777906163280}
   characterController: {fileID: 2026805768659862188}
 --- !u!143 &2026805768659862188

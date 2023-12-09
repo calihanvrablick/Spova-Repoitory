@@ -16,7 +16,11 @@ public class MazeGenerator : MonoBehaviour
 
     public GameObject shopPrefab;
     public GameObject spikePrefab;
-    public GameObject enemyFloor;
+    public GameObject spiralPrefab;
+
+    public GameObject easyEnemy;
+    public GameObject mediumEnemy;
+    public GameObject hardEnemy;
 
 
     public GameObject mazeNodePrefab;
@@ -81,6 +85,11 @@ public class MazeGenerator : MonoBehaviour
                 if (row == rowSize-1 && col == colSize-1)
                 {
                     thisRenderer.material.SetColor("_Color", Color.green);
+                    floorArray[row, col].gameObject.tag = "VictoryRoyale";
+
+                    BoxCollider thisCollider = floorArray[row, col].gameObject.GetComponent<BoxCollider>();
+                    thisCollider.isTrigger = true;
+
                     continue;
                 }
 
@@ -99,7 +108,40 @@ public class MazeGenerator : MonoBehaviour
                 {
                     // empty room with coins
 
-                    int amountOfCoins = UnityEngine.Random.Range(3,9);
+                    // 20% to get a swirly room, these rooms have double the coins in them
+                    int spiralRoomChance = UnityEngine.Random.Range(1, 101);
+
+
+                    int amountOfCoins = UnityEngine.Random.Range(3, 9);
+
+                    if (spiralRoomChance <= 20)
+                    {
+                        amountOfCoins *= 2;
+
+                        Quaternion targetQuaternion;
+
+                        int directionNumber = Random.Range(1, 5);
+                        if (directionNumber == 4)
+                        {
+                            targetQuaternion = Quaternion.Euler(0, 90, 0);
+                        }
+                        else if (directionNumber == 3)
+                        {
+                            targetQuaternion = Quaternion.Euler(0, 180, 0);
+                        }
+                        else if (directionNumber == 2)
+                        {
+                            targetQuaternion = Quaternion.Euler(0, 270, 0);
+                        }
+                        else
+                        {
+                            targetQuaternion = Quaternion.Euler(0, 0, 0);
+                        }
+
+                        Vector3 targetPosition = floorArray[row, col].transform.localPosition + new Vector3(0f, -1f, 0f);
+                        GameObject spiralClone = Instantiate(spiralPrefab, targetPosition, targetQuaternion);
+
+                    }
 
                     for (int i = 0; i < amountOfCoins; i++)
                     {
@@ -118,11 +160,43 @@ public class MazeGenerator : MonoBehaviour
                 {
                     // enemy room
 
+                    int amountOfEnemies = Random.Range(3, 8);
+
+                    float xRange = transform.localScale.x / 2;
+                    float zRange = transform.localScale.z / 2;
+
+                    for (int i = 0; i < amountOfEnemies; i++)
+                    {
+
+
+                        int enemyType = Random.Range(1, 4);
+
+                        if (enemyType >= 3)
+                        {
+                            GameObject thisEnemy = Instantiate(easyEnemy);
+
+                            thisEnemy.transform.localPosition = new Vector3(Random.Range(-xRange, xRange), 1, Random.Range(-zRange, zRange)) + floorArray[row, col].transform.localPosition;
+                        }
+                        else if (enemyType >= 2)
+                        {
+                            GameObject thisEnemy = Instantiate(mediumEnemy);
+
+                            thisEnemy.transform.localPosition = new Vector3(Random.Range(-xRange, xRange), 1, Random.Range(-zRange, zRange)) + floorArray[row, col].transform.localPosition;
+                        }
+                        else
+                        {
+                            GameObject thisEnemy = Instantiate(hardEnemy);
+
+                            thisEnemy.transform.localPosition = new Vector3(Random.Range(-xRange, xRange), 1, Random.Range(-zRange, zRange)) + floorArray[row, col].transform.localPosition;
+                        }
+                    }
+
                     thisRenderer.material.SetColor("_Color", Color.red);
                 }
                 else
                 {
                     // parkour 
+
                     int amountOfSpikes = Random.Range(7, 14);
                     for (int i = 0; i < amountOfSpikes; i++)
                     {

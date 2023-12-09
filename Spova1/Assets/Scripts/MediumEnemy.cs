@@ -10,7 +10,7 @@ using UnityEngine;
 
 public class MediumEnemy : MonoBehaviour
 {
-    public Transform Player;
+    private GameObject player;
 
     [SerializeField] public int contactDamage = 0;
 
@@ -27,7 +27,16 @@ public class MediumEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        this.gameObject.transform.LookAt(Player);
+        GameObject[] allGameObjects = UnityEngine.SceneManagement.SceneManager.GetActiveScene().GetRootGameObjects();
+        foreach (GameObject thisObject in allGameObjects)
+        {
+            if (thisObject.name == "Player")
+            {
+                player = thisObject;
+            }
+        }
+
+        this.gameObject.transform.LookAt(player.transform);
         shootAtPlayer();
 
         if (health <= 0)

@@ -12,6 +12,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Game Over.unity
     guid: 7d38ee6687a630547b2be7faa4a2a944
   - enabled: 1
+    path: Assets/Scenes/TestAreas/TestMaze.unity
+    guid: ccc7b35da2a5c1241937c5834937eaff
+  - enabled: 1
+    path: Assets/Scenes/Victory Royale.unity
+    guid: f0ccc00b23269124b8aeab35ce00b106
+  - enabled: 0
     path: Assets/Scenes/CaliScene.unity
     guid: 6e2ab05a5b2e3408fba7394e83e524f9
   m_configObjects: {}
