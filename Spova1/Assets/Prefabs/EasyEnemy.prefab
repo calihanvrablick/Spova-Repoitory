@@ -75,6 +75,7 @@ GameObject:
   - component: {fileID: 249194539879755830}
   - component: {fileID: 3449532306652561252}
   - component: {fileID: 7680383013465260172}
+  - component: {fileID: 715317345028373032}
   m_Layer: 0
   m_Name: EasyEnemy
   m_TagString: EasyEnemy
@@ -188,3 +189,25 @@ MonoBehaviour:
   health: 1
   speed: 3
   goingLeft: 1
+--- !u!64 &715317345028373032
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8886465346835252264}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}

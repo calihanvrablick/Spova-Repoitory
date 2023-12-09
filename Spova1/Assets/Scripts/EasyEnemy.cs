@@ -15,14 +15,14 @@ public class EasyEnemy : MonoBehaviour
     public GameObject rightPoint;
 
     public int contactDamage = 0;
-    public int health = 0;
+    public int health = 1;
 
     //boundaries for left/right
     private Vector3 leftPosition;
     private Vector3 rightPosition;
 
     //how fast the enemy travels
-    public float speed;
+    public float speed = 5;
 
     //the direction it is going
     public bool goingLeft;

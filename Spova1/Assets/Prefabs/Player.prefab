@@ -140,6 +140,7 @@ MonoBehaviour:
   lightsaber: {fileID: 894171638517487185}
   canAttack: 1
   attackCooldown: 1
+  isAttacking: 0
 --- !u!1 &2868737227092453232
 GameObject:
   m_ObjectHideFlags: 0
@@ -190,7 +191,7 @@ GameObject:
   - component: {fileID: 5006777214512770224}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -387,6 +388,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 755810025323864388, guid: 32b3232e84a5f4b8d9278a818ae7e1bd, type: 3}
+      propertyPath: m_TagString
+      value: Lightsaber
+      objectReference: {fileID: 0}
     - target: {fileID: 3504098912881027922, guid: 32b3232e84a5f4b8d9278a818ae7e1bd, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -461,6 +466,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 755810025323864388, guid: 32b3232e84a5f4b8d9278a818ae7e1bd, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3655956158728574241}
+    - targetCorrespondingSourceObject: {fileID: 755810025323864388, guid: 32b3232e84a5f4b8d9278a818ae7e1bd, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6530668052132787743}
   m_SourcePrefab: {fileID: 100100000, guid: 32b3232e84a5f4b8d9278a818ae7e1bd, type: 3}
 --- !u!1 &894171638517487185 stripped
 GameObject:
@@ -517,6 +525,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &6530668052132787743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 894171638517487185}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6aa65b16b26f4e1c97c9f297b9c9d7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1
 --- !u!4 &4309047524587858348 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4456697262191287993, guid: 32b3232e84a5f4b8d9278a818ae7e1bd, type: 3}

@@ -23,4 +23,12 @@ public class Lightsaber : MonoBehaviour
     {
         
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "EasyEnemy" )
+        {
+            other.gameObject.GetComponent<EasyEnemy>().health -= damage;
+        }
+    }
 }
