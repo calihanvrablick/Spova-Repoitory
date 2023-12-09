@@ -22,11 +22,19 @@ public class MediumEnemy : MonoBehaviour
 
     public float bulletSpeed;
 
+    public int health;
+
     // Update is called once per frame
     void Update()
     {
         this.gameObject.transform.LookAt(Player);
         shootAtPlayer();
+
+        if (health <= 0)
+        {
+            gameObject.SetActive(false);
+            Destroy(gameObject);
+        }
     }
 
     void shootAtPlayer()
@@ -40,7 +48,6 @@ public class MediumEnemy : MonoBehaviour
         GameObject bulletObj = Instantiate(enemyBullet, SpawnPoint.transform.position, SpawnPoint.transform.rotation) as GameObject;
         Rigidbody bulletRig = bulletObj.GetComponent<Rigidbody>();
         bulletRig.AddForce(bulletRig.transform.forward * bulletSpeed, ForceMode.Impulse);
-        Destroy(bulletObj, 5f); 
-       
+        Destroy(bulletObj, 5f);
     }
 }

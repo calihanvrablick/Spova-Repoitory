@@ -30,5 +30,10 @@ public class Lightsaber : MonoBehaviour
         {
             other.gameObject.GetComponent<EasyEnemy>().health -= damage;
         }
+
+        if (other.gameObject.tag == "MediumEnemy")
+        {
+            other.gameObject.GetComponent<MediumEnemy>().health -= damage;
+        }
     }
 }

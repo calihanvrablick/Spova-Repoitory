@@ -149,6 +149,7 @@ GameObject:
   - component: {fileID: 5392654247294893953}
   - component: {fileID: 8804030146075074752}
   - component: {fileID: 6231053983712752812}
+  - component: {fileID: 8459766299164329734}
   m_Layer: 0
   m_Name: MediumEnemy
   m_TagString: MediumEnemy
@@ -238,7 +239,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -261,5 +262,28 @@ MonoBehaviour:
   bulletTime: 0
   enemyBullet: {fileID: 5629367964642171827, guid: f4c480c29a1a94156a2beb9d69429a5d, type: 3}
   SpawnPoint: {fileID: 181080513185831276}
-  enemySpeed: 5
+  enemySpeed: 0
   bulletSpeed: 5
+  health: 2
+--- !u!64 &8459766299164329734
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8718739152207400005}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
