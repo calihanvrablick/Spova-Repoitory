@@ -78,6 +78,12 @@ public class PlayerHandler : MonoBehaviour
             TakeDamage(other.gameObject.GetComponent<EasyEnemy>().contactDamage);
         }
 
+        if (other.gameObject.tag == "Bullet")
+        {
+            TakeDamage(other.gameObject.GetComponent<Bullet>().contactDamage);
+            Destroy(other.gameObject);
+        }
+
         if (other.gameObject.tag == "Obstacle")
         {
             TakeDamage(other.gameObject.GetComponent<Obstacle>().damageOnTouch);

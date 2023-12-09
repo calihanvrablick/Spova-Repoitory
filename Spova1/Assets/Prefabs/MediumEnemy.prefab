@@ -150,7 +150,7 @@ GameObject:
   - component: {fileID: 8804030146075074752}
   - component: {fileID: 6231053983712752812}
   - component: {fileID: 8459766299164329734}
-  - component: {fileID: 283125894173170723}
+  - component: {fileID: 3434243304681856317}
   m_Layer: 0
   m_Name: MediumEnemy
   m_TagString: MediumEnemy
@@ -288,7 +288,7 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!54 &283125894173170723
+--- !u!54 &3434243304681856317
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

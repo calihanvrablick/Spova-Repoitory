@@ -11,4 +11,6 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     public int damage;
+
+    [SerializeField] public int contactDamage = 0;
 }
