@@ -15,9 +15,12 @@ public class MazeGenerator : MonoBehaviour
     // Start is called before the first frame update
 
     public GameObject shopPrefab;
-    public GameObject enemyGrid;
-    public GameObject parkourGrid;
+    public GameObject spikePrefab;
+    public GameObject enemyFloor;
+
+
     public GameObject mazeNodePrefab;
+    public GameObject coinPrefab;
 
 
 
@@ -82,15 +85,57 @@ public class MazeGenerator : MonoBehaviour
                 }
 
                 // roll number to see what floor plan the room gets
-                int number = UnityEngine.Random.Range(1, 4);
+                int number = UnityEngine.Random.Range(1, 101);
 
-                if (number >= 3)
+                if (number >= 90)
                 {
                     // shop
                     GameObject shopClone = Instantiate(shopPrefab, new Vector3(xSize * row, 1, zSize * col), Quaternion.identity);
                     thisRenderer.material.SetColor("_Color", Color.yellow);
 
                     shopClone.transform.SetParent(floorArray[row, col].transform);
+                }
+                else if (number >= 50)
+                {
+                    // empty room with coins
+
+                    int amountOfCoins = UnityEngine.Random.Range(3,9);
+
+                    for (int i = 0; i < amountOfCoins; i++)
+                    {
+                        GameObject thisCoin = Instantiate(coinPrefab);
+
+                        float xRange = transform.localScale.x / 3;
+                        float zRange = transform.localScale.z / 3;
+                        
+                        thisCoin.transform.localPosition = new Vector3(Random.Range(-xRange, xRange), 2, Random.Range(-zRange, zRange)) + floorArray[row, col].transform.localPosition;
+                        thisCoin.transform.SetParent(floorArray[row, col].transform);
+                    }
+
+                    thisRenderer.material.SetColor("_Color", Color.grey);
+                }
+                else if (number >= 25)
+                {
+                    // enemy room
+
+                    thisRenderer.material.SetColor("_Color", Color.red);
+                }
+                else
+                {
+                    // parkour 
+                    int amountOfSpikes = Random.Range(7, 14);
+                    for (int i = 0; i < amountOfSpikes; i++)
+                    {
+                        GameObject thisSpike = Instantiate(spikePrefab);
+
+                        float xRange = transform.localScale.x / 2;
+                        float zRange = transform.localScale.z / 2;
+
+                        thisSpike.transform.localPosition = new Vector3(Random.Range(-xRange, xRange), .1f, Random.Range(-zRange, zRange)) + floorArray[row, col].transform.localPosition;
+                        //thisSpike.transform.SetParent(transform);
+                    }
+
+                    thisRenderer.material.SetColor("_Color", Color.cyan);
                 }
             }
         }
