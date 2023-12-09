@@ -68,6 +68,16 @@ public class PlayerHandler : MonoBehaviour
             TakeDamage(other.gameObject.GetComponent<HardEnemy>().contactDamage);
         }
 
+        if (other.gameObject.tag == "MediumEnemy")
+        {
+            TakeDamage(other.gameObject.GetComponent<MediumEnemy>().contactDamage);
+        }
+
+        if (other.gameObject.tag == "EasyEnemy")
+        {
+            TakeDamage(other.gameObject.GetComponent<EasyEnemy>().contactDamage);
+        }
+
         if (other.gameObject.tag == "Obstacle")
         {
             TakeDamage(other.gameObject.GetComponent<Obstacle>().damageOnTouch);

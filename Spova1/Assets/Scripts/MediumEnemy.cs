@@ -12,13 +12,13 @@ public class MediumEnemy : MonoBehaviour
 {
     public Transform Player;
 
+    [SerializeField] public int contactDamage = 0;
+
     [SerializeField] private float timer = 5;
     public float bulletTime;
 
     public GameObject enemyBullet;
     public Transform SpawnPoint;
-
-    public float enemySpeed;
 
     public float bulletSpeed;
 

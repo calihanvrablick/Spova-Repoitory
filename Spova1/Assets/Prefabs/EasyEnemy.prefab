@@ -185,7 +185,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftPoint: {fileID: 6780520176739734229}
   rightPoint: {fileID: 2163250971544348195}
-  contactDamage: 1
+  contactDamage: 10
   health: 1
   speed: 3
   goingLeft: 1
