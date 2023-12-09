@@ -68,6 +68,11 @@ public class PlayerHandler : MonoBehaviour
             TakeDamage(other.gameObject.GetComponent<HardEnemy>().contactDamage);
         }
 
+        if (other.gameObject.tag == "Obstacle")
+        {
+            TakeDamage(other.gameObject.GetComponent<Obstacle>().damageOnTouch);
+        }
+
         if (other.gameObject.tag == "ShopButton")
         {
             //print("Pressed button");

@@ -12,6 +12,7 @@ TagManager:
   - SpawnPoint
   - Bullet
   - ShopButton
+  - Obstacle
   layers:
   - Default
   - TransparentFX

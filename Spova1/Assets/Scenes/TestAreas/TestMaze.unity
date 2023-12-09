@@ -317,6 +317,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4010623605620134817, guid: 05131e5c37c4e2e448e4c0a0ff05ea0a, type: 3}
+      propertyPath: coinPrefab
+      value: 
+      objectReference: {fileID: 3414472854426868557, guid: a4b7eba77e4ec4749a994adc2c3a82e4, type: 3}
+    - target: {fileID: 4010623605620134817, guid: 05131e5c37c4e2e448e4c0a0ff05ea0a, type: 3}
+      propertyPath: parkourGrid
+      value: 
+      objectReference: {fileID: 6017764879789638477, guid: 1766e04cbb8d4cb4ab58ff58bdb5d650, type: 3}
+    - target: {fileID: 4010623605620134817, guid: 05131e5c37c4e2e448e4c0a0ff05ea0a, type: 3}
+      propertyPath: spikePrefab
+      value: 
+      objectReference: {fileID: 3519575844690234118, guid: 7cf14f8207bda574ba58bbf06a2cf669, type: 3}
     - target: {fileID: 8591952547009175993, guid: 05131e5c37c4e2e448e4c0a0ff05ea0a, type: 3}
       propertyPath: m_Name
       value: Maze
