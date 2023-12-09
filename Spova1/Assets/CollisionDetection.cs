@@ -11,8 +11,13 @@ using UnityEngine;
 
 public class CollisionDetection : MonoBehaviour
 {
+    //shortcutting weaponcontroller script to wc
     public WeaponController wc;
 
+    /// <summary>
+    /// checking to see if medium enemy is being hit by wc
+    /// </summary>
+    /// <param name="other"></param>
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "MediumEnemy" && wc.isAttacking)

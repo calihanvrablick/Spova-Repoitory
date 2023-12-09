@@ -24,6 +24,10 @@ public class Lightsaber : MonoBehaviour
         
     }
 
+    /// <summary>
+    /// handles all enemy on trigger enter(s)
+    /// </summary>
+    /// <param name="other"></param>
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "EasyEnemy" )

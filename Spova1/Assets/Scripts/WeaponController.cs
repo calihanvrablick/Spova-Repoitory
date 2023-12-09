@@ -2,6 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * Author: [Vrablick, Calihan] & [Nguyen, Kanyon]
+ * Last Updated: [12/06/2023]
+ * [handles all objects and animations in the WeaponcController folder]
+ */
+
 public class WeaponController : MonoBehaviour
 {
     public GameObject lightsaber;
@@ -21,6 +27,9 @@ public class WeaponController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// handles lightsaber attack with animation
+    /// </summary>
     public void lightsaberAttack()
     {
         isAttacking = true;
@@ -30,6 +39,7 @@ public class WeaponController : MonoBehaviour
         StartCoroutine(resetAttackCooldown());
     }
 
+    //resetting the attack cooldown back to normal
     IEnumerator resetAttackCooldown()
     {
         StartCoroutine(resetAttackBool());
@@ -37,6 +47,7 @@ public class WeaponController : MonoBehaviour
         canAttack = true;
     }
 
+    //resetting the isAttacking status to normal
     IEnumerator resetAttackBool()
     {
         yield return new WaitForSeconds(1.0f);

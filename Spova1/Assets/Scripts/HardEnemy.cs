@@ -17,7 +17,7 @@ public class HardEnemy : MonoBehaviour
     [SerializeField] public int health = 0;
 
 
-
+    // Start is called before the first frame update
     private void Start()
     {
         GameObject[] allGameObjects = UnityEngine.SceneManagement.SceneManager.GetActiveScene().GetRootGameObjects();

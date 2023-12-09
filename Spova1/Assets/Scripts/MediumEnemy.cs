@@ -46,6 +46,9 @@ public class MediumEnemy : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// allows medium enemy to shoot at player x amount of times in x seconds
+    /// </summary>
     void shootAtPlayer()
     {
         bulletTime -= Time.deltaTime;

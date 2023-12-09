@@ -19,6 +19,7 @@ public class UIManager : MonoBehaviour
 
     private PlayerHandler playerInfo;
 
+    // Start is called before the first frame update
     private void Start()
     {
         playerInfo = playerObject.GetComponent<PlayerHandler>();
